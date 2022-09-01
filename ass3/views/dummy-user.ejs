@@ -1,0 +1,47 @@
+<html>
+    <head>
+        <style>
+            table{
+                
+               
+                width: 100%;
+            }
+            td,th{
+                border: 1px solid black;
+                text-align: left;
+                padding: 10px;
+            }
+            tr:nth-child(even){
+                background-color: white;
+            }
+            h1{
+                text-align: center;
+                color: rgba(0, 0, 0, 0.601);
+            }
+        </style>
+    </head>
+    <body>
+        <div>
+            <h1>Dummy users</h1>
+            <table>
+                <tr>
+                    <th>Name</th>
+                    <th>Email</th>
+                    <th>Age</th>
+                    <th>City</th>
+                    <th>Profession</th>
+                </tr>
+                <% for(let i=0;i<users.length;i++) {%>
+                    <tr>
+                        <td><%= users[i].fullname%></td>
+                        <td><%= users[i].email%></td>
+                        <td><%= users[i].age%></td>
+                        <td><%= users[i].city%></td>
+                        <td><%= users[i].profession%></td>
+                    </tr>
+                    <% }%>
+            </table>
+            <a href="/form"> Add user</a>
+        </div>
+    </body>
+</html>

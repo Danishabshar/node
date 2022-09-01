@@ -1,0 +1,48 @@
+<html>
+  <head>
+    <style>
+        .card {
+                border: 1px solid gray;
+                margin-bottom: 10px;
+                padding: 10px;
+            }
+            .primary {
+                color: green;
+            }
+            .secondary {
+                color: yellow;
+            }
+            .danger {
+                color: red;
+            }
+            .inlineBox{
+                display: flex;
+            }
+            button{
+                margin-right: 10px;
+            }
+    </style>
+  </head>
+  <body>
+    <div>
+      <h1>Assignment-4</h1>
+      <% for(let ele of user) { %>
+      <div class="card">
+        <!-- <p><%=getClass(ele.isPromoted)%></p> -->
+        <div class="card-item <%= getClass(ele.isPromoted) %> "><%= ele.name %></div>
+        <div class="card-item <%= getClass(ele.isPromoted) %> "><%= ele.email %></div>
+        
+        <div class="inlineBox">
+        <form method="POST" action="/user/update/<%= ele.email %>?_method=PUT" id="f1">
+          <button style="background-color:green" id="edit-<%= ele.name %>" type="submit">Promoted/Demoted</button>
+        </form>
+        <form method="POST" action="/user/delete/<%= ele.email %>?_method=DELETE" id="f2">
+            <button style="background-color:red" id="edit-<%= ele.name %>" type="submit">Deleted</button>
+        </form>
+      </div>
+      </div>
+      <% } %>
+      <a href="/form">Add User</a>
+    </div>
+  </body>
+</html>
